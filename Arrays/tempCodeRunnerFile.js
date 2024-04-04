@@ -1,0 +1,1 @@
+narutoCharacters1.push(narutoCharacters2);
