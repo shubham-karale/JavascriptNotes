@@ -19,6 +19,8 @@ Ans = Deep copy is copy of an object whose properties do not share the same refe
 let myArray = [1, 2, 3, 4, 5];
 console.log(myArray); // [1, 2, 3, 4, 5]
 
+
+
 //  NOTE: Inside Arrays you will get access of prototypes.
 
 // Javascript Array Methods

@@ -14,10 +14,10 @@ let myObject = {
 };
 
 // 2. Object Constructor
-// let myObject = new Object();
+ let myObject1 = new Object();
 
 // 3. Object.create() Method
-// let myObject = Object.create();
+ let myObject3 = Object.create();
 
 //  Accessing Objects Properties
 
