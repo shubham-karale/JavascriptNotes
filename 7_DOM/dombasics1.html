@@ -1,0 +1,130 @@
+<!-- /*
+Document is made of Some Objects which is present in the html
+Your Document start at html tags
+
+! What is the difference between innerHTML and innerText?
+* innerHTML: It will return the whole HTML of the element
+* innerText: It will return the text of the element
+
+! What is the difference between textContent and innerText?
+* textContent: It will return the text of the element even if its hidden by some css property
+* innerText: display only visible text 
+
+  Methods to fetch elements from the DOM
+    * document.getElementById('id')
+    * document.getElementsByClassName('class')
+    * document.getElementsByTagName('tag')
+    * document.querySelector('css selector')
+    * document.querySelectorAll('css selector')
+    * document.getElementsByName('name')
+    * document.forms['formName']
+
+ ! QuerySelector
+    * It will return the first element that matches the css selector
+    * It will return null if no element is found
+    * It will return only one element
+
+ * document.querySelector('h1') // It will return the first h1 element
+  *  document.querySelector('.container') // It will return the first element with class container
+   * document.querySelector('#heading') // It will return the first element with id heading
+
+*/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #fff;
+        }
+
+        conatiner {
+            text-align: center;
+            font-size: 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div class="container">
+        <h1 id="heading">DOM Learning From Youtube <span style="display: none;">Text Added into Span</span> </h1>
+        <p id="para">Welcome to Our Course</p>
+
+        <ul class="list-item">
+            <li>h1</li>
+            <li>h2</li>
+            <li>h3</li>
+            <li>h4</li>
+            <li>h5</li>
+        </ul>
+    </div>
+</body>
+
+<script>
+    let myFistli = document.querySelector('ul');
+    myFirstli = document.querySelector('li');
+    myFirstli.style.color = 'green';
+
+    // ----------------------------------------------
+
+    let allItems = document.querySelectorAll('li');
+    allItems.forEach((item) => {
+        item.style.color = 'red';
+    });
+
+    const tempList = document.querySelectorAll('ul');
+
+    console.log(tempList);
+    /*
+    What is the difference between Nodelist and HTMLCollection
+    Ans = Both are array like objects
+     * Nodelist: It will return the list of nodes
+     * HTMLCollection: It will return the list of elements
+     * 
+     NodeList is a collection of nodes, such as those returned by properties like Node.childNodes and the document.querySelectorAll method.
+     HTMLCollection is a collection of HTML elements returned by properties like document.links and document.forms.
+    */
+
+    tempList.style.color = 'green'; // It will give error because it is a NodeList
+    tempList[0].style.color = 'yellowgreen'; // It will work because it is an array like object
+
+    /*
+      In querySelectorAll, it will return the NodeList
+     In querySelector it will return the first element that matches the css selector
+    */
+
+    tempList.forEach((item) => {
+        item.style.color = 'green';
+    });
+
+    // ! TRY TO USE FOR EACH LOOP ON NODELIST
+    // ! TRY TO USE FOR EACH LOOP ON HTMLCOLLECTION
+
+    // ****************************************************************************************************
+
+    // ! How to convert NodeList to Array
+    // * Array.from(NodeList)
+    // * [...NodeList]
+
+
+
+    // ****************************************************************************************************
+
+    // ! getElementsByClassName
+    // * It will return the HTMLCollection
+
+    const myClass = document.getElementsByClassName('list-item');
+
+    console.log(myClass);
+
+
+
+</script>
+
+</html>

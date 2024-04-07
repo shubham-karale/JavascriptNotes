@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit And Remove DOM Elements</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: #fff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="language">
+        <li>Javascript</li>
+        <li>Java</li>
+        <li>C++</li>
+        <li>Swift</li>
+        <li>Kotlin</li>
+    </ul>
+</body>
+<script>
+    // Add New Language (UnOptimized Approach)
+    function addLanguage(newLanguage) {
+        const language = document.querySelector('.language');
+        const newLi = document.createElement('li');
+        newLi.textContent = newLanguage;
+        language.appendChild(newLi);
+    }
+
+    // Add New Language (Optimized Approach)
+    function addOptimizedLanguage(newLanguage) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(newLanguage))
+        document.querySelector('.language').appendChild(li);
+    }
+
+    // Edit Language
+    function editLanguage(itemNumber, newLangName) {
+        const numLanguage = document.querySelector(`li:nth-child(${itemNumber})`);
+        const newLi = document.createElement('li');
+        newLi.textContent = newLangName // Set the new text
+        numLanguage.replaceWith(newLi); // Replace the item
+    }
+
+    // Remove language
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove();
+
+    //  ! Remove Language by Item Number
+    function removeLanguage(itemNumber) {
+        const numLanguage = document.querySelector(`li:nth-child(${itemNumber})`);
+        numLanguage.remove();
+    }
+
+
+    addLanguage('Python');
+    addLanguage('Ruby');
+    addLanguage('C#');
+    addOptimizedLanguage('GoLang')
+    editLanguage(5, "JQuery");
+
+
+</script>
+
+</html>
